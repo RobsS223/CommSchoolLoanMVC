@@ -1,0 +1,105 @@
+@model CommSchoolBankV2.Dto.UserLoginDto
+
+@section Styles {
+<style>
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 120px); /* Учитываем высоту футера и навбара */
+    }
+
+    .login-card {
+        width: 400px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-card .card-header {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .login-card .card-header h3 {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .login-card .form-control {
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .login-card .btn-custom {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        width: 100%;
+    }
+
+    .login-card .btn-custom:hover {
+        background: linear-gradient(135deg, #5a6fd9, #6a3b98);
+    }
+
+    .login-card .text-muted a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .login-card .text-muted a:hover {
+        text-decoration: underline;
+    }
+</style>
+}
+
+<div class="login-container">
+    <div class="card login-card">
+        <!-- Шапка карточки -->
+        <div class="card-header">
+            <h3>Welcome Back</h3>
+            <p class="mb-0">Log in to continue</p>
+        </div>
+
+        <!-- Основная часть карточки -->
+        <div class="card-body p-4 bg-white">
+            <!-- Отображение ошибок -->
+            <div asp-validation-summary="All" class="text-danger text-center mb-3" style="font-size: 0.9rem; font-weight: bold;"></div>
+
+            <form method="post">
+                <!-- Поле ввода имени пользователя -->
+                <div class="form-group mb-4">
+                    <label for="Username" style="font-weight: 600; font-size: 0.95rem; color: #333;">Username</label>
+                    <input asp-for="Username" class="form-control shadow-sm" id="Username" placeholder="Enter your username" />
+                    <span asp-validation-for="Username" class="text-danger" style="font-size: 0.85rem;"></span>
+                </div>
+
+                <!-- Поле ввода пароля -->
+                <div class="form-group mb-4">
+                    <label for="Password" style="font-weight: 600; font-size: 0.95rem; color: #333;">Password</label>
+                    <input asp-for="Password" type="password" class="form-control shadow-sm" id="Password" placeholder="Enter your password" />
+                    <span asp-validation-for="Password" class="text-danger" style="font-size: 0.85rem;"></span>
+                </div>
+
+                <!-- Кнопка входа -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-custom">Login</button>
+                </div>
+            </form>
+
+            <!-- Ссылка на регистрацию -->
+            <div class="text-center mt-4">
+                <p class="mb-0 text-muted">Don't have an account?
+                    <a href="/Auth/Register">Register now</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

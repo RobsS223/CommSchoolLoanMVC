@@ -1,0 +1,170 @@
+@model CommSchoolBankV2.Models.Loan
+
+<div class="form-container">
+    <div class="form-header" role="banner">
+        Apply for a Loan
+    </div>
+
+    <div class="form-body">
+        <form asp-action="ApplyLoan" method="post" aria-labelledby="apply-loan-form">
+            <!-- Validation Summary -->
+            <div asp-validation-summary="ModelOnly" class="text-danger text-center mb-3"></div>
+
+            <!-- Loan Type Field -->
+            <div class="form-group">
+                <label asp-for="Type">Loan Type</label>
+                <select asp-for="Type" class="form-control">
+                    <option value="Quick Loan">Quick Loan</option>
+                    <option value="Car Loan">Car Loan</option>
+                    <option value="Installment">Installment</option>
+                </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+
+            <!-- Amount Field -->
+            <div class="form-group">
+                <label asp-for="Amount">Amount</label>
+                <input asp-for="Amount" class="form-control" id="Amount" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+
+            <!-- Currency Field -->
+            <div class="form-group">
+                <label asp-for="Currency">Currency</label>
+                <select asp-for="Currency" class="form-control">
+                    <option value="GEL" selected>GEL</option>
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                </select>
+                <span asp-validation-for="Currency" class="text-danger"></span>
+            </div>
+
+            <!-- Period Field -->
+            <div class="form-group">
+                <label asp-for="PeriodMonths">Period (Months)</label>
+                <select asp-for="PeriodMonths" class="form-control">
+                    <option value="3">3 Months</option>
+                    <option value="6">6 Months</option>
+                    <option value="12">12 Months</option>
+                    <option value="24">24 Months</option>
+                </select>
+                <span asp-validation-for="PeriodMonths" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block">Apply</button>
+        </form>
+
+        <!-- Back to Dashboard Button -->
+        <div class="mt-3">
+            <a href="/user/dashboard" class="btn btn-back-to-dashboard btn-block">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("Amount").addEventListener("focus", function() {
+        let amountInput = this;
+        // If the field contains '0.00', clear it when user focuses
+        if (amountInput.value === "0.00") {
+            amountInput.value = "";
+        }
+    });
+
+    document.getElementById("Amount").addEventListener("blur", function() {
+        let amountInput = this;
+        // Format the amount to two decimal places if the user didn't enter anything
+        if (amountInput.value === "") {
+            amountInput.value = "0.00";
+        } else {
+            // Convert to number and round to two decimals if it's a valid number
+            const amount = parseFloat(amountInput.value.replace(",", "."));
+            if (!isNaN(amount)) {
+                amountInput.value = amount.toFixed(2); // Ensure two decimals
+            }
+        }
+    });
+</script>
+
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    .form-header {
+        background: linear-gradient(135deg, #667eea, #764ba2);  /* Matching the Dashboard header color */
+        color: #fff;
+        padding: 20px;
+        font-size: 1.5rem;
+        border-radius: 10px 10px 0 0;
+        text-align: center;
+    }
+
+    .form-body {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #495057;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 5px rgba(103, 126, 234, 0.25); /* Match focus color with dashboard */
+    }
+
+    .text-danger {
+        font-size: 0.875rem;
+        color: #e74a3b;
+    }
+
+    .btn-primary {
+        background-color: #667eea;  /* Matching the Dashboard button color */
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #495057;
+    }
+
+    .btn-back-to-dashboard {
+        background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Orange gradient for visibility */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-back-to-dashboard:hover {
+        background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    }
+</style>

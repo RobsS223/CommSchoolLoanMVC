@@ -1,0 +1,162 @@
+@model IEnumerable<CommSchoolBankV2.Models.Loan>
+
+<div class="loans-container">
+    <div class="loans-header">
+        <h2>Your Loans</h2>
+    </div>
+
+    <div class="loans-list">
+        @foreach (var loan in Model)
+        {
+        <div class="loan-card">
+            <div class="loan-details">
+                <p><strong>Loan Type:</strong> @loan.Type</p>
+                <p><strong>Amount:</strong> @loan.Amount</p>
+                <p><strong>Currency:</strong> @loan.Currency</p>
+                <p><strong>Period:</strong> @loan.PeriodMonths months</p>
+                <p><strong>Status:</strong>
+                    @if (loan.Status == "Active")
+                    {
+                    <span class="status active">Active <span class="status-circle active"></span></span>
+                    }
+                    else if (loan.Status == "Pending")
+                    {
+                    <span class="status pending">Pending <span class="status-circle pending"></span></span>
+                    }
+                    else if (loan.Status == "Rejected")
+                    {
+                    <span class="status rejected">Rejected <span class="status-circle rejected"></span></span>
+                    }
+                </p>
+            </div>
+        </div>
+        }
+    </div>
+
+    <!-- Back to Dashboard Button -->
+    <div class="mt-3 text-center">
+        <a href="/user/dashboard" class="btn btn-back-to-dashboard btn-block">Back to Dashboard</a>
+    </div>
+</div>
+
+<style>
+    .loans-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .loans-header {
+        margin-bottom: 20px;
+    }
+
+    .loans-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adaptive grid */
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .loan-card {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 100%;
+        max-width: 350px;
+        text-align: left;
+    }
+
+    .loan-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .loan-details p {
+        margin: 5px 0;
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .status-circle {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-left: 5px;
+    }
+
+    .status.active .status-circle {
+        background-color: #28a745; /* Green */
+    }
+
+    .status.pending .status-circle {
+        background-color: #fd7e14; /* Orange */
+    }
+
+    .status.rejected .status-circle {
+        background-color: #dc3545; /* Red */
+    }
+
+    .status {
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    .status.active {
+        color: #28a745;
+    }
+
+    .status.pending {
+        color: #fd7e14;
+    }
+
+    .status.rejected {
+        color: #dc3545;
+    }
+
+    .btn-back-to-dashboard {
+        background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Orange gradient */
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 300px;
+        transition: background-color 0.3s ease;
+        margin: 0 auto;
+    }
+
+    .btn-back-to-dashboard:hover {
+        background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    }
+
+    @@media (max-width: 768px) {
+    .loans-list {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .btn-back-to-dashboard {
+        font-size: 1rem;
+        max-width: 250px;
+    }
+    }
+
+    @@media (max-width: 480px) {
+    .loans-list {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .btn-back-to-dashboard {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+    }
+    }
+</style>

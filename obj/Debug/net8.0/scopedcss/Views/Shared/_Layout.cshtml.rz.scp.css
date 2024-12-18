@@ -1,0 +1,108 @@
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* Стили бренда навбара */
+a.navbar-brand[b-gz17uzueuz] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-word; /* Исправлен с break-all для более аккуратного переноса */
+}
+
+/* Стили ссылок */
+a[b-gz17uzueuz] {
+  color: #667eea; /* Используем тот же цвет, что и в логине */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover[b-gz17uzueuz] {
+  text-decoration: underline;
+  color: #5a6fd9; /* Более темный оттенок при наведении */
+}
+
+/* Стили кнопок */
+.btn-primary[b-gz17uzueuz] {
+  color: #fff;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 10px; /* Добавляем закругление */
+  font-weight: bold;
+}
+
+.btn-primary:hover[b-gz17uzueuz] {
+  background: linear-gradient(135deg, #5a6fd9, #6a3b98);
+}
+
+/* Стили для активных ссылок в навигации */
+.nav-pills .nav-link.active[b-gz17uzueuz],
+.nav-pills .show > .nav-link[b-gz17uzueuz] {
+  color: #fff;
+  background: linear-gradient(135deg, #667eea, #764ba2); /* Адаптировано под общий стиль */
+  border: none;
+}
+
+/* Стили границ */
+.border-top[b-gz17uzueuz] {
+  border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom[b-gz17uzueuz] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Стили теней */
+.box-shadow[b-gz17uzueuz] {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+/* Стили для кнопки политики */
+button.accept-policy[b-gz17uzueuz] {
+  font-size: 1rem;
+  line-height: inherit;
+  border-radius: 10px; /* Соответствует общему стилю */
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  font-weight: bold;
+}
+
+button.accept-policy:hover[b-gz17uzueuz] {
+  background: linear-gradient(135deg, #5a6fd9, #6a3b98);
+}
+
+/* Стили футера */
+.footer[b-gz17uzueuz] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+  background-color: #f8f9fa; /* Светлый фон для контраста */
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer a[b-gz17uzueuz] {
+  color: #667eea;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer a:hover[b-gz17uzueuz] {
+  text-decoration: underline;
+  color: #5a6fd9;
+}
+
+/* Адаптивные стили для мелких экранов */
+@media (max-width: 576px) {
+  .navbar-brand[b-gz17uzueuz] {
+    font-size: 1rem;
+  }
+
+  .footer[b-gz17uzueuz] {
+    font-size: 0.8rem;
+    line-height: 50px;
+  }
+}

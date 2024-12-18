@@ -1,0 +1,187 @@
+@model CommSchoolBankV2.Dto.UserRegisterDto
+
+@section Styles {
+<style>
+    .register-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 120px); /* Учитываем высоту футера и навбара */
+    }
+
+    .register-card {
+        width: 400px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .register-card .card-header {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .register-card .card-header h3 {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .register-card .form-control {
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .register-card .btn-custom {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        width: 100%;
+    }
+
+    .register-card .btn-custom:hover {
+        background: linear-gradient(135deg, #5a6fd9, #6a3b98);
+    }
+
+    .register-card .text-muted a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .register-card .text-muted a:hover {
+        text-decoration: underline;
+    }
+</style>
+}
+
+<div class="register-container">
+    <div class="card register-card">
+        <!-- Шапка карточки -->
+        <div class="card-header">
+            <h3>Register</h3>
+        </div>
+
+        <!-- Основная часть карточки -->
+        <div class="card-body p-4 bg-white">
+            <!-- Отображение ошибок -->
+            <div asp-validation-summary="All" class="text-danger text-center mb-3" style="font-size: 0.9rem; font-weight: bold;"></div>
+
+            <form method="post">
+                <!-- Поле ID Number -->
+                <div class="form-group mb-3">
+                    <label asp-for="IdNumber" class="text-muted">ID Number</label>
+                    <input asp-for="IdNumber" class="form-control" placeholder="Enter ID Number" />
+                    <span asp-validation-for="IdNumber" class="text-danger"></span>
+                </div>
+
+                <!-- Поле First Name -->
+                <div class="form-group mb-3">
+                    <label asp-for="Firstname" class="text-muted">First Name</label>
+                    <input asp-for="Firstname" class="form-control" placeholder="Enter First Name" />
+                    <span asp-validation-for="Firstname" class="text-danger"></span>
+                </div>
+
+                <!-- Поле Last Name -->
+                <div class="form-group mb-3">
+                    <label asp-for="Lastname" class="text-muted">Last Name</label>
+                    <input asp-for="Lastname" class="form-control" placeholder="Enter Last Name" />
+                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                </div>
+
+                <!-- Поле Username -->
+                <div class="form-group mb-3">
+                    <label asp-for="Username" class="text-muted">Username</label>
+                    <input asp-for="Username" class="form-control" placeholder="Enter Username" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+
+                <!-- Поле Date of Birth -->
+                <div class="form-group mb-3">
+                    <label asp-for="DateOfBirth" class="text-muted">Date of Birth</label>
+                    <input asp-for="DateOfBirth" class="form-control" type="text" id="DateOfBirth" placeholder="MM/DD/YYYY" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+
+                <!-- Поле City -->
+                <div class="form-group mb-3">
+                    <label asp-for="City" class="text-muted">City</label>
+                    <input asp-for="City" class="form-control" placeholder="Enter City" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <!-- Поле Address -->
+                <div class="form-group mb-3">
+                    <label asp-for="Address" class="text-muted">Address</label>
+                    <input asp-for="Address" class="form-control" placeholder="Enter Address" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <!-- Поле Phone Number -->
+                <div class="form-group mb-3">
+                    <label asp-for="PhoneNumber" class="text-muted">Phone Number</label>
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Enter Phone Number" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <!-- Поле Email -->
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="text-muted">Email</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- Поле Password -->
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="text-muted">Password</label>
+                    <input asp-for="Password" class="form-control" type="password" placeholder="Enter Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <!-- Поле Confirm Password -->
+                <div class="form-group mb-3">
+                    <label asp-for="ConfirmPassword" class="text-muted">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" class="form-control" type="password" placeholder="Confirm Password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <!-- Кнопка регистрации -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-custom">Register</button>
+                </div>
+            </form>
+
+            <!-- Ссылка на логин -->
+            <div class="text-center mt-4">
+                <p class="text-muted">Already have an account?
+                    <a href="/Auth/Login">Login now</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dateInput = document.getElementById('DateOfBirth');
+
+        dateInput.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); // Удаляем все нечисловые символы
+
+            if (value.length >= 3 && value.length <= 4) {
+                value = value.slice(0, 2) + '/' + value.slice(2);
+            } else if (value.length >= 5) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
+            }
+
+            e.target.value = value;
+        });
+    });
+</script>
+}

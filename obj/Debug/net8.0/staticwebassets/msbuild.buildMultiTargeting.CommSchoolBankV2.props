@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/CommSchoolBankV2.props" />
+</Project>
