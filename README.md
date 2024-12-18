@@ -2,8 +2,9 @@
 <h1 align="center">CommSchoolBank Application</h1>
 
 <p align="center">
-  <img src="https://www.freeiconspng.com/uploads/bank-icon-4.png" alt="CommSchoolBank Logo" width="200">
+  <img src="https://i.imgur.com/2XYaOiY.png" alt="CommSchoolBank Logo" width="200">
 </p>
+
 
 <p align="center">
   <strong>CommSchoolBank</strong> is an MVC-based web platform designed to provide financial services within a community school environment. This project showcases my skills as a junior C# developer, utilizing modern technologies such as .NET 8.0, C#, JavaScript, and CSS, with backend services running on SQL Server facilitated through Docker.
@@ -14,6 +15,7 @@
 - **Secure User Authentication**: Integrated with Azure AD B2C for robust user authentication and authorization.
 - **Loan Management**: Enables users to apply for, manage, and track loans efficiently.
 - **Financial Dashboard**: Provides users with a comprehensive view of their financial activities and status.
+- **Accountant Dashboard and Features**: Currently under development; aims to offer specialized tools for financial management and reporting.
 
 ## Technologies Used
 
@@ -50,11 +52,7 @@ After completing the installation steps, access the application at [http://local
 
 Contributions are welcome! If you're interested in enhancing the project, please fork the repository and create a pull request. For major changes, it's advisable to open an issue first to discuss the proposed modifications.
 
-## License
-
-This project is licensed under the MIT License. For more details, see the [LICENSE](LICENSE.md) file.
-
 ## Contact
 
-- **Email**: [your.email@example.com](mailto:your.email@example.com)
-- **LinkedIn**: [yourlinkedin](https://www.linkedin.com/in/yourlinkedin)
+- **Email**: [robs.s223@gmail.com](mailto:robs.s223@gmail.com)
+- **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/robert-s-3aa8a6187/)
